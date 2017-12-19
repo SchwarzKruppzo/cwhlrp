@@ -1,0 +1,8 @@
+"cwhlrp"
+{
+	"title"			"HL1 RP"
+	"description"	"A roleplaying schema set in the Half-Life 1 timeline."
+	"author"		"Schwarz Kruppzo"
+	"version"		"1.0"
+	"menusystem"	"1"
+}
