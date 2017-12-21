@@ -11,7 +11,6 @@ ITEM.cost = 2000;
 ITEM.model = "models/weapons/w_357b.mdl";
 ITEM.weight = 1.25;
 ITEM.access = "V";
-ITEM.classes = {CLASS_SECURITY_CHIEF, CLASS_DCT};
 ITEM.uniqueID = "wep_hl_357";
 ITEM.business = true;
 ITEM.description = "ItemWeapon357Desc";
