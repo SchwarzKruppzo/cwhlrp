@@ -56,7 +56,7 @@ function Schema:GetTargetPlayerText(player, targetPlayerText)
 	elseif (!showRank) then
 		targetPlayerText:Add("CLASS", L(className), classColor);
 	end;
-	
+
 	local targetIDTextFont = Clockwork.option:GetFont("target_id_text");
 	local physDescTable = {};
 	local thirdPerson = "PerHim";
@@ -147,5 +147,33 @@ function Schema:DrawTargetPlayerStatus(target, alpha, x, y)
 		end;
 
 		return y;
+	end;
+end;
+
+function Schema:DestroyBars(bars)
+	bars:Destroy("HEALTH");
+	bars:Destroy("ARMOR");
+end;
+
+function Schema:GetBars(bars)
+	local health = math.Clamp(Clockwork.Client:Health(), 0, Clockwork.Client:GetMaxHealth());
+	local armor = math.Clamp(Clockwork.Client:Armor(), 0, Clockwork.Client:GetMaxArmor());
+
+	if (!self.armor) then
+		self.armor = armor;
+	else
+		self.armor = math.Approach(self.armor, armor, 1);
+	end;
+	if (!self.health) then
+		self.health = health;
+	else
+		self.health = math.Approach(self.health, health, 1);
+	end;
+
+	if (health > 0) then
+		bars:Add("HP", Color(231, 75, 54, 255), L("BarHealth"), self.health, Clockwork.Client:GetMaxHealth(), self.health < 10, 5);
+	end;
+	if (armor > 0) then
+		bars:Add("AP", Color(201, 166, 120, 255), L("BarArmor"), self.armor, Clockwork.Client:GetMaxArmor(), self.health < 10, 4);
 	end;
 end;

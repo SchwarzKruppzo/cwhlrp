@@ -13,6 +13,8 @@ CW_RUSSIAN["CharacterMenuLeave"] = "ВЫХОД";
 CW_RUSSIAN["CharacterMenuPrevious"] = "НАЗАД";
 CW_RUSSIAN["CharacterMenuNext"] = "ДАЛЕЕ";
 CW_RUSSIAN["CharacterMenuCancel"] = "ОТМЕНА";
+CW_RUSSIAN["BarHealth"] = "ЗДОРОВЬЕ";
+CW_RUSSIAN["BarArmor"] = "БРОНЯ";
 
 -- Factions
 CW_RUSSIAN["FactionAdministrationPersonnel"] = "Administrative Personnel";

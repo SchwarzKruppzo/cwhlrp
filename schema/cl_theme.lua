@@ -5,7 +5,7 @@
 --]]
 
 local THEME = Clockwork.theme:Begin(true);
-local FONT = "Segoe UI Semilight";
+local FONT = "DINPro-Regular";
 
 -- Called when fonts should be created.
 function THEME:CreateFonts()
@@ -123,17 +123,17 @@ function THEME:CreateFonts()
 
 	surface.CreateFont("hl1rp_BarText", {
 		size = Clockwork.kernel:FontScreenScale(9),
-		weight = 600,
+		weight = 500,
 		antialias = true,
 		font = FONT,
 		extended = true
 	});
 
 	surface.CreateFont("hl1rp_BarTextAuto", {
-		size = Clockwork.kernel:FontScreenScale(7),
-		weight = 600,
+		size = Clockwork.kernel:FontScreenScale(8),
+		weight = 500,
 		antialias = true,
-		font = "Arial",
+		font = FONT,
 		extended = true
 	});
 
@@ -141,6 +141,27 @@ function THEME:CreateFonts()
 		size = Clockwork.kernel:FontScreenScale(10),
 		weight = 600,
 		antialias = true,
+		font = FONT,
+		extended = true
+	});
+
+	surface.CreateFont("hl1rp_ScoreboardName", {
+		size = 20,
+		weight = 600,
+		font = FONT,
+		extended = true
+	});
+
+	surface.CreateFont("hl1rp_ScoreboardDesc", {
+		size = 16,
+		weight = 600,
+		font = FONT,
+		extended = true
+	});
+
+	surface.CreateFont("hl1rp_ScoreboardClass",	{
+		size = 30,
+		weight = 700,
 		font = FONT,
 		extended = true
 	});
@@ -168,6 +189,9 @@ function THEME:Initialize()
 	Clockwork.option:SetFont("menu_text_huge", "hl1rp_MenuTextHuge");
 	Clockwork.option:SetFont("menu_text_small", "hl1rp_IntroTextSmall");
 	Clockwork.option:SetFont("menu_text_tiny", "hl1rp_IntroTextTiny");
+	Clockwork.option:SetFont("scoreboard_desc", "hl1rp_ScoreboardDesc");
+	Clockwork.option:SetFont("scoreboard_name", "hl1rp_ScoreboardName");
+	Clockwork.option:SetFont("scoreboard_class", "hl1rp_ScoreboardClass");
 
 	Clockwork.option:SetColor("menu_authors", Color(255, 255, 255, 4));
 	Clockwork.option:SetColor("columnsheet_shadow_normal", Color(0, 0, 0, 0));
@@ -199,8 +223,8 @@ function THEME:Initialize()
 
 	Clockwork.option:SetKey("top_bar_width_scale", 0.2);
 
-	Clockwork.bars.height = 18;
-	Clockwork.bars.padding = 32;
+	Clockwork.bars.height = 22;
+	Clockwork.bars.padding = 22;
 end;
 
 -- Called just before a bar is drawn.
@@ -217,13 +241,6 @@ function THEME.module:PreDrawBar(barInfo)
 	if (barInfo.text) then
 		barInfo.text = string.upper(barInfo.text);
 	end;
-
- 	-- Thats a bad solution.
-	if (barInfo.uniqueID == "HEALTH") then
-		barInfo.color = Color(231, 75, 54, 255);
-	elseif (barInfo.uniqueID == "ARMOR") then
-		barInfo.color = Color(201, 166, 120, 255);
-	end;
 end;
 
 -- Called just after a bar is drawn.
@@ -238,6 +255,16 @@ function THEME.module:PostDrawBar(barInfo)
 		surface.SetDrawColor(barInfo.color.r, barInfo.color.g, barInfo.color.b, barInfo.color.a);
 		surface.DrawRect(barInfo.x + 1, barInfo.y + 1, math.max(width - 2, 0), barInfo.height - 2);
 	end;
+/*
+	if (barInfo.text and barInfo.text != "") then
+		self:OverrideMainFont(Clockwork.option:GetFont("bar_text"));
+			self:DrawSimpleText(
+				barInfo.text, barInfo.x + (barInfo.width / 2), barInfo.y + (barInfo.height / 2),
+				Color(colorWhite.r, colorWhite.g, colorWhite.b, alpha), 1, 1
+			);
+		self:OverrideMainFont(false);
+	end;
+	*/
 end;
 
 -- Called when the menu is opened.

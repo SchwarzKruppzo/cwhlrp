@@ -13,6 +13,8 @@ CW_ENGLISH["CharacterMenuLeave"] = "LEAVE";
 CW_ENGLISH["CharacterMenuPrevious"] = "PREVIOUS";
 CW_ENGLISH["CharacterMenuNext"] = "NEXT";
 CW_ENGLISH["CharacterMenuCancel"] = "CANCEL";
+CW_ENGLISH["BarHealth"] = "HEALTH";
+CW_ENGLISH["BarArmor"] = "ARMOR";
 
 -- Factions
 CW_ENGLISH["FactionAdministrationPersonnel"] = "Administrative Personnel";
