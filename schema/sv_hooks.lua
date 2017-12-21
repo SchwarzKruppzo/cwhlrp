@@ -99,9 +99,12 @@ function Schema:ClockworkInitPostEntity()
 			end;
 		end;
 	end;
+
+	self:LoadSodaMachines();
 end;
 
 function Schema:PostSaveData()
+	self:SaveSodaMachines();
 end;
 
 function Schema:GetPlayerDefaultInventory(player, character, inventory)

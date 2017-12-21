@@ -36,3 +36,44 @@ function Schema:SayAnnounce(player, text)
 
 	Clockwork.chatBox:Add(nil, player, "announce", text);
 end;
+
+function Schema:LoadSodaMachines()
+	local sodamachines = Clockwork.kernel:RestoreSchemaData("plugins/sodamachines/"..game.GetMap());
+
+	for k, v in pairs(sodamachines) do
+		local entity = ents.Create("ent_sodamachine");
+		entity:SetPos(v.position);
+		entity:Spawn();
+		entity:SetSkin(v.skin);
+		entity:SetDTBool(0, v.enabled);
+
+		if (IsValid(entity)) then
+			entity:SetAngles(v.angles);
+			entity:SetButtons(v.types);
+		end;
+
+		local phys = entity:GetPhysicsObject();
+
+		if (IsValid(phys)) then
+			phys:Wake();
+			phys:EnableMotion(false);
+		end;
+	end;
+end;
+
+function Schema:SaveSodaMachines()
+	local sodamachines = {};
+
+	for k, v in pairs(ents.FindByClass("ent_sodamachine")) do
+		local types, stocks = v:GetButtons();
+		sodamachines[#sodamachines + 1] = {
+			angles = v:GetAngles(),
+			position = v:GetPos(),
+			skin = v:GetSkin(),
+			enabled = v:GetDTBool(0),
+			types = types
+		};
+	end;
+
+	Clockwork.kernel:SaveSchemaData("plugins/sodamachines/"..game.GetMap(), sodamachines);
+end;
