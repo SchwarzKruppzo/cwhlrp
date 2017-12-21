@@ -14,6 +14,6 @@ function cwStamina:GetBars(bars)
 	end;
 
 	if (self.stamina < 95) then
-		bars:Add("STAMINA", Color(100, 175, 100, 255), "", self.stamina, 100, self.stamina < 10);
+		bars:Add("STAMINA", Color(142, 168, 78, 255), L("BarStamina"), self.stamina, 100, self.stamina < 10, 3);
 	end;
 end;

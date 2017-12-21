@@ -12,3 +12,4 @@ CW_RUSSIAN["StaminaDrainScale"] = "Убавление выносливости";
 CW_RUSSIAN["StaminaDrainScaleDesc"] = "Влияет на то, как быстро будет падать выносливость.";
 CW_RUSSIAN["BreathingVolume"] = "Громкость дыхания";
 CW_RUSSIAN["BreathingVolumeDesc"] = "Громкость дыхания уставшего персонажа.";
+CW_RUSSIAN["BarStamina"] = "ВЫНОСЛИВОСТЬ";

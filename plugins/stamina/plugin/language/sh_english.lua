@@ -12,3 +12,4 @@ CW_ENGLISH["StaminaDrainScale"] = "Stamina Drain Scale";
 CW_ENGLISH["StaminaDrainScaleDesc"] = "Determines how fast stamina should drain.";
 CW_ENGLISH["BreathingVolume"] = "Breathing Volume";
 CW_ENGLISH["BreathingVolumeDesc"] = "The volume for breathing when a player's stamina is low.";
+CW_ENGLISH["BarStamina"] = "STAMINA";
