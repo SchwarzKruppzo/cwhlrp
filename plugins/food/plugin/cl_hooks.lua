@@ -22,6 +22,6 @@ function PLUGIN:GetBars(bars)
 		self.thirst = math.Approach(self.thirst, thirst, 1)
 	end
 
-	bars:Add("HUNGER", Color(64, 96, 150, 255), "", self.hunger, 100, true);
-	bars:Add("THIRST", Color(163, 158, 109, 255), "", self.thirst, 100, true);
+	bars:Add("HUNGER", Color(233, 149, 6, 255), L("BarHunger"), self.hunger, 100, self.hunger < 25, 2);
+	bars:Add("THIRST", Color(108, 199, 219, 255), L("BarThirst"), self.thirst, 100, self.thirst < 50, 1);
 end;

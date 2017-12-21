@@ -68,7 +68,7 @@ function ITEM:Consume(player, all)
 	local name = self("name");
 	local useSound = self("useSound");
 	local uses = self("dUses", 0);
-	local mul = (all and 1 or (uses - self:GetData("Used")));
+	local mul = (!all and 1 or (uses - self:GetData("Used")));
 	local hunger = self("dHunger", 0) * mul;
 	local thirst = self("dThirst", 0) * mul;
 	local health = self("dHealth", 0) * mul;
